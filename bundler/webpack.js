@@ -5,6 +5,7 @@ const path = require('path')
 
 module.exports = {
     entry: path.resolve(__dirname, '../src/script.js'),
+    mode: "development",
     output:
     {
         hashFunction: 'xxhash64',
@@ -12,13 +13,11 @@ module.exports = {
         path: path.resolve(__dirname, '../dist')
     },
     devtool: 'source-map',
+    devServer: {
+      open: true
+    },
     plugins:
     [
-        new CopyWebpackPlugin({
-            patterns: [
-                { from: path.resolve(__dirname, '../static') }
-            ]
-        }),
         new HtmlWebpackPlugin({
             template: path.resolve(__dirname, '../src/index.html'),
             minify: true
