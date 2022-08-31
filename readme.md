@@ -1,4 +1,4 @@
-Basic template taken from THREE.js Journey
+Basic template taken from THREE.js Journey.   
 [https://threejs-journey.com/lessons/4]()
 
 ## Setup
