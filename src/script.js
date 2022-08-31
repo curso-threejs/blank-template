@@ -5,6 +5,7 @@ import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
 const htmlContainer = document.getElementById("container3D");
 const renderer = new THREE.WebGLRenderer();
 let scene, camera, controls;
+let cube;
 
 /** This callback is called whenever the browser window is resized
  */
@@ -24,25 +25,20 @@ function onResize() {
 /** Function called only once to create & setup the scene
  */
 function createScene() {
-  // Add focal light
-  const light = new THREE.PointLight(0xffffff, 0.5);
-  light.position.set(5, 5, 2);
+  // Add hemisphere light
+  const light = new THREE.HemisphereLight(0xffffff, 0x444444, 1);
   scene.add(light);
-
-  // Add a light helper to help us visualize it on scene
-  const lightHelper = new THREE.PointLightHelper(light, 0.3);
-  scene.add(lightHelper);
 
   // Add a grid
   const gridHelper = new THREE.GridHelper(8, 8);
   gridHelper.rotateX(-Math.PI / 2);
   scene.add(gridHelper);
 
-  // Add a sphere
-  const ballGeometry = new THREE.SphereBufferGeometry(1);
-  const ballMaterial = new THREE.MeshPhongMaterial({ color: 0x8800ee });
-  const ball = new THREE.Mesh(ballGeometry, ballMaterial);
-  scene.add(ball);
+  // Add a cube
+  const cubeGeometry = new THREE.BoxGeometry(1, 1, 1);
+  const cubeMaterial = new THREE.MeshPhongMaterial({ color: 0xaa00ff });
+  cube = new THREE.Mesh(cubeGeometry, cubeMaterial);
+  scene.add(cube);
 }
 
 /** Function called only once to setup & configure the basic THREE.js components
