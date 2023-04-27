@@ -1,0 +1,15 @@
+{
+  "compilerOptions": {
+    "outDir": "./dist/",
+    "noImplicitAny": true,
+    "target": "es5",
+    "jsx": "react",
+    "allowJs": true,
+    "moduleResolution": "node",
+
+    // Needed as per Webpack TS config (See https://webpack.js.org/configuration/configuration-languages/#typescript)
+    "module": "CommonJS", 
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true
+  }
+}
